@@ -1,0 +1,9 @@
+pid=
+cert=./stunnel.cert
+foreground = yes
+debug = 7
+
+[https]
+accept=8443
+connect=8000
+TIMEOUTclose=1

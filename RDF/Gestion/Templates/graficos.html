@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Administración</title>
+  <!-- Bootstrap core CSS-->
+  <link href="{% static "vendor/bootstrap/css/bootstrap.min.css" %}" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="{% static "vendor/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template-->
+  <link href="{% static "css/sb-admin.css" %}" rel="stylesheet">
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="index.html">Redes Definidas por Software</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Panel de Control">
+          <a class="nav-link" href="./Administracion">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Panel de Control</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Estadísticas">
+          <a class="nav-link" href="./Estadisticas">
+            <i class="fa fa-fw fa-area-chart"></i>
+            <span class="nav-link-text">Estadísticas</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Usuarios">
+          <a class="nav-link" href="./Usuarios">
+            <i class="fa fa-fw fa-table"></i>
+            <span class="nav-link-text">Usuarios</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Conmutadores">
+          <a class="nav-link" href="./Conmutadores">
+            <i class="fa fa-fw fa-wrench"></i>
+            <span class="nav-link-text">Conmutadores</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="collapseComponents">
+            <li>
+              <a href="navbar.html">Navbar</a>
+            </li>
+            <li>
+              <a href="cards.html">Cards</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Configuraciones">
+          <a class="nav-link" href="./Configuraciones">
+            <i class="fa fa-fw fa-file"></i>
+            <span class="nav-link-text">Configuraciones</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Topologia">
+          <a class="nav-link" href="./Topologia">
+            <i class="fa fa-fw fa-sitemap"></i>
+            <span class="nav-link-text">Topología</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Aplicacion">
+          <a class="nav-link" href="./Aplicaciones">
+            <i class="fa fa-fw fa-link"></i>
+            <span class="nav-link-text">Aplicaciones</span>
+          </a>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Panel de Control">
+          <a class="nav-link" href="./Politicas">
+            <i class="fa fa-fw fa-dashboard"></i>
+            <span class="nav-link-text">Políticas</span>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav sidenav-toggler">
+        <li class="nav-item">
+          <a class="nav-link text-center" id="sidenavToggler">
+            <i class="fa fa-fw fa-angle-left"></i>
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-out"></i>Desconectarse</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a href="./">Panel de Control</a>
+        </li>
+        <li class="breadcrumb-item active">Estadísticas</li>
+      </ol>
+      <!-- Area Chart Example-->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-area-chart"></i> Historial HP-1</div>
+        <div class="card-body">
+          <canvas id="myAreaChart" width="100%" height="30"></canvas>
+        </div>
+        <div class="card-footer small text-muted">Gráfico de área</div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-area-chart"></i> Historial HP-2</div>
+        <div class="card-body">
+          <canvas id="myAreaChart2" width="100%" height="30"></canvas>
+        </div>
+        <div class="card-footer small text-muted">Gráfico de área</div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-area-chart"></i> Historial Mikrotik</div>
+        <div class="card-body">
+          <canvas id="myAreaChart3" width="100%" height="30"></canvas>
+        </div>
+        <div class="card-footer small text-muted">Gráfico de área</div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8">
+          <!-- Example Bar Chart Card-->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-bar-chart"></i> MegaBytes de entrada y salida</div>
+            <div class="card-body">
+              <canvas id="myBarChart" width="100" height="50"></canvas>
+            </div>
+            <div class="card-footer small text-muted">Gráfico de barras</div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <!-- Example Pie Chart Card-->
+          <div class="card mb-3">
+            <div class="card-header">
+              <i class="fa fa-pie-chart"></i> Rendimiento</div>
+            <div class="card-body">
+              <canvas id="myPieChart" width="100%" height="100"></canvas>
+            </div>
+            <div class="card-footer small text-muted">Gráfico de secciones</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>RDS © 2018   Javier Barroso Canto</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Haga click en "Desconectarse" si estás seguro de salir de la sesión actual.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+            <a class="btn btn-primary" href="./Login">Desconectarse</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="{% static "vendor/jquery/jquery.min.js"></script>
+    <script src="{% static "vendor/bootstrap/js/bootstrap.bundle.min.js" %}"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="{% static "vendor/jquery-easing/jquery.easing.min.js" %}"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="{% static "vendor/chart.js/Chart.min.js" %}"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="{% static "js/sb-admin.min.js" %}"></script>
+    <!-- Custom scripts for this page-->
+    <!--<script src="{% static "js/sb-admin-charts.min.js" %}">-->
+
+    <script type="text/javascript">
+      // Chart.js scripts
+      // -- Set new default font family and font color to mimic Bootstrap's default styling
+      Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+      Chart.defaults.global.defaultFontColor = '#292b2c';
+
+
+      // -- Area Chart Example
+      var ctx = document.getElementById("myAreaChart");
+      var myLineChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          //labels: ["Mar 1", "Mar 2", "Mar 3", "Mar 4", "Mar 5", "Mar 6", "Mar 7", "Mar 8", "Mar 9", "Mar 10", "Mar 11", "Mar 13"],
+          labels: {{ labels_actividad2|safe }},
+          datasets: [{
+            label: "Sessions",
+            lineTension: 0.3,
+            backgroundColor: "rgba(2,117,216,0.2)",
+            borderColor: "rgba(2,117,216,1)",
+            pointRadius: 5,
+            pointBackgroundColor: "rgba(2,117,216,1)",
+            pointBorderColor: "rgba(255,255,255,0.8)",
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(2,117,216,1)",
+            pointHitRadius: 20,
+            pointBorderWidth: 2,
+            //data: [10000, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 38451],
+            data: {{ data_actividad2 }},
+          }],
+        },
+        options: {
+          scales: {
+            xAxes: [{
+              time: {
+                unit: 'date'
+              },
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                maxTicksLimit: 7
+              }
+            }],
+            yAxes: [{
+              ticks: {
+                min: 0,
+                max: {{ max_trafico }} *2,
+                maxTicksLimit: 5
+              },
+              gridLines: {
+                color: "rgba(0, 0, 0, .125)",
+              }
+            }],
+          },
+          legend: {
+            display: false
+          }
+        }
+      });
+
+      // -- Area Chart Example
+      var ctx = document.getElementById("myAreaChart2");
+      var myLineChart2 = new Chart(ctx, {
+        type: 'line',
+        data: {
+          //labels: ["Mar 1", "Mar 2", "Mar 3", "Mar 4", "Mar 5", "Mar 6", "Mar 7", "Mar 8", "Mar 9", "Mar 10", "Mar 11", "Mar 13"],
+          labels: {{ labels_actividad3|safe }},
+          datasets: [{
+            label: "Sessions",
+            lineTension: 0.3,
+            backgroundColor: "rgba(2,117,216,0.2)",
+            borderColor: "rgba(2,117,216,1)",
+            pointRadius: 5,
+            pointBackgroundColor: "rgba(2,117,216,1)",
+            pointBorderColor: "rgba(255,255,255,0.8)",
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(2,117,216,1)",
+            pointHitRadius: 20,
+            pointBorderWidth: 2,
+            //data: [10000, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 38451],
+            data: {{ data_actividad3 }},
+          }],
+        },
+        options: {
+          scales: {
+            xAxes: [{
+              time: {
+                unit: 'date'
+              },
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                maxTicksLimit: 7
+              }
+            }],
+            yAxes: [{
+              ticks: {
+                min: 0,
+                max: {{ max_trafico }} *2,
+                maxTicksLimit: 5
+              },
+              gridLines: {
+                color: "rgba(0, 0, 0, .125)",
+              }
+            }],
+          },
+          legend: {
+            display: false
+          }
+        }
+      });
+
+      // -- Area Chart Example
+      var ctx = document.getElementById("myAreaChart3");
+      var myLineChart3 = new Chart(ctx, {
+        type: 'line',
+        data: {
+          //labels: ["Mar 1", "Mar 2", "Mar 3", "Mar 4", "Mar 5", "Mar 6", "Mar 7", "Mar 8", "Mar 9", "Mar 10", "Mar 11", "Mar 13"],
+          labels: {{ labels_actividad4|safe }},
+          datasets: [{
+            label: "Sessions",
+            lineTension: 0.3,
+            backgroundColor: "rgba(2,117,216,0.2)",
+            borderColor: "rgba(2,117,216,1)",
+            pointRadius: 5,
+            pointBackgroundColor: "rgba(2,117,216,1)",
+            pointBorderColor: "rgba(255,255,255,0.8)",
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(2,117,216,1)",
+            pointHitRadius: 20,
+            pointBorderWidth: 2,
+            //data: [10000, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 38451],
+            data: {{ data_actividad4 }},
+          }],
+        },
+        options: {
+          scales: {
+            xAxes: [{
+              time: {
+                unit: 'date'
+              },
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                maxTicksLimit: 7
+              }
+            }],
+            yAxes: [{
+              ticks: {
+                min: 0,
+                max: 1000,
+                maxTicksLimit: 5
+              },
+              gridLines: {
+                color: "rgba(0, 0, 0, .125)",
+              }
+            }],
+          },
+          legend: {
+            display: false
+          }
+        }
+      });
+
+      // -- Bar Chart Example
+      var ctx = document.getElementById("myBarChart");
+      var myLineChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          //labels: ['HP-1 Entrada', "HP-1 Salida", "HP-2 Entrada", "HP-2 Salida", "Mik-Entrada", "Mik-Salida"],
+          labels: {{ labels_idps|safe }},
+          datasets: [{
+            label: "Tráfico",
+            backgroundColor: "rgba(2,117,216,1)",
+            borderColor: "rgba(2,117,216,1)",
+            data: {{ data_trafico|safe }},
+            //data: [{{oids}}, 5312, 6251, 7841, 9821, 14984],
+          }],
+        },
+        options: {
+          scales: {
+            xAxes: [{
+              time: {
+                unit: 'month'
+              },
+              gridLines: {
+                display: false
+              },
+              ticks: {
+                maxTicksLimit: 6
+              }
+            }],
+            yAxes: [{
+              ticks: {
+                min: 0,
+                max: {{ max_trafico }} + 10,
+                maxTicksLimit: 5
+              },
+              gridLines: {
+                display: true
+              }
+            }],
+          },
+          legend: {
+            display: false
+          }
+        }
+      });
+      // -- Pie Chart Example
+      var ctx = document.getElementById("myPieChart");
+      var myPieChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+          //labels: ['Azul', "Red", "Yellow"],
+          labels: {{ labels_rendimiento|safe }},
+          datasets: [{
+            //data: [12.21, 15.58, 11.25],
+            data: {{ data_rendimiento }},
+            backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+          }],
+        },
+      });
+
+    </script>
+  </div>
+</body>
+
+</html>

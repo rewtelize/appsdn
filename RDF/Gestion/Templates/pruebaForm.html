@@ -1,0 +1,28 @@
+<html>
+	<head> Form </head>
+	<body>
+		<form method="POST" class="post-form form-group" >
+	        {% csrf_token %}
+	        <div class="row">
+	          <div class="col-lg-3 col-lg-offset-3" align="center">
+	            <div>
+	                <label class="labelito" for="nombre" >Tu nombre</label>
+	                <input class="textito" type="text" name="nombre" id="nombre" required />
+	                <div style="clear:both;"></div>
+	            </div>
+	            <div>
+	                <label class="labelito" for="nombre" >Email</label>
+	                <input class="textito" type="text" name="email" id="email" required />
+	                <div style="clear:both;"></div>
+	            </div>
+	            <div>
+	                <label class="labelito" for="nombre" >Cuéntanos</label>
+	                <input class="textito" type="text" name="cuentanos" id="cuentanos" required />
+	                <div style="clear:both;"></div>
+	            </div>
+	          </div>
+	        </div>
+	        <input type="submit" value="Enviar" class="boton_negro" style="width:120px; margin-right:228px; margin-bottom: 20px; font-weight:bold;" />
+		</form>
+	</body>ç
+</html>
